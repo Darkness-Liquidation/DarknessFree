@@ -1,16 +1,16 @@
 package ac.darkness.darkness.platform.fabric.mc261;
 
+<<<<<<< HEAD:fabric/official/mc261/src/main/java/ac/darkness/darkness/platform/fabric/mc261/Fabric261ConversionUtil.java
 import ac.darkness.darkness.platform.fabric.GrimACFabricOfficialLoaderPlugin;
+import ac.darkness.darkness.platform.fabric.utils.convert.FabricComponentDecoder;
 import ac.darkness.darkness.platform.fabric.utils.convert.FabricOfficialConversionUtil;
 import ac.darkness.darkness.platform.fabric.utils.convert.IFabricConversionUtil;
 import ac.darkness.darkness.utils.anticheat.LogUtil;
-import com.mojang.serialization.JsonOps;
 import com.github.retrooper.packetevents.netty.buffer.ByteBufHelper;
 import com.github.retrooper.packetevents.protocol.item.ItemStack;
 import com.github.retrooper.packetevents.protocol.player.GameMode;
 import com.github.retrooper.packetevents.protocol.player.InteractionHand;
 import com.github.retrooper.packetevents.wrapper.PacketWrapper;
-import io.github.retrooper.packetevents.adventure.serializer.gson.GsonComponentSerializer;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.PooledByteBufAllocator;
 import net.kyori.adventure.text.Component;
@@ -45,10 +45,9 @@ public class Fabric261ConversionUtil implements IFabricConversionUtil {
 
     @Override
     public Object toNativeText(Component component) {
-        return ComponentSerialization.CODEC.decode(
-                RegistryAccess.EMPTY.createSerializationContext(JsonOps.INSTANCE),
-                GsonComponentSerializer.gson().serializeToTree(component)
-        ).getOrThrow(IllegalArgumentException::new).getFirst();
+        return FabricComponentDecoder.decode(component, buffer ->
+                ComponentSerialization.TRUSTED_STREAM_CODEC.decode(new RegistryFriendlyByteBuf(buffer,
+                        GrimACFabricOfficialLoaderPlugin.FABRIC_SERVER.registryAccess())));
     }
 
     @Override
