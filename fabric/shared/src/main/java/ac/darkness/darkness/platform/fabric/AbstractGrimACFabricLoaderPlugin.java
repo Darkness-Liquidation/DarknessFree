@@ -3,7 +3,6 @@ package ac.darkness.darkness.platform.fabric;
 import ac.darkness.darkness.GrimAPI;
 import ac.grim.grimac.api.GrimAPIProvider;
 import ac.grim.grimac.api.plugin.GrimPlugin;
-import ac.darkness.darkness.command.CloudCommandService;
 import ac.grim.grimac.internal.plugin.resolver.GrimExtensionManager;
 import ac.darkness.darkness.platform.api.PlatformLoader;
 import ac.darkness.darkness.platform.api.PlatformServer;
@@ -17,6 +16,7 @@ import ac.darkness.darkness.platform.api.player.PlatformPlayerFactory;
 import ac.darkness.darkness.platform.api.scheduler.PlatformScheduler;
 import ac.darkness.darkness.platform.api.sender.Sender;
 import ac.darkness.darkness.platform.api.sender.SenderFactory;
+import ac.darkness.darkness.platform.fabric.command.FabricCommandServiceFactory;
 import ac.darkness.darkness.platform.fabric.manager.FabricMessagePlaceHolderManager;
 import ac.darkness.darkness.platform.fabric.manager.FabricPlatformPluginManager;
 import ac.darkness.darkness.platform.fabric.resolver.FabricResolverRegistrar;
@@ -28,11 +28,6 @@ import com.github.retrooper.packetevents.PacketEvents;
 import com.github.retrooper.packetevents.PacketEventsAPI;
 import com.github.retrooper.packetevents.manager.server.ServerVersion;
 import lombok.Getter;
-import org.incendo.cloud.CommandManager;
-import org.incendo.cloud.SenderMapper;
-import org.incendo.cloud.execution.ExecutionCoordinator;
-import org.incendo.cloud.fabric.FabricServerCommandManager;
-import org.jetbrains.annotations.NotNull;
 
 public abstract class AbstractGrimACFabricLoaderPlugin<
         P extends PlatformPlayerFactory,
@@ -148,7 +143,11 @@ public abstract class AbstractGrimACFabricLoaderPlugin<
         } catch (Throwable t) {
             LogUtil.warn("IMPORTANT: Command Framework failed to load (Missing Cloud Library?). \n" +
                     "Grim will run without commands enabled!");
-            if (!(t instanceof NoClassDefFoundError)) {
+            if (t instanceof NoClassDefFoundError) {
+                LogUtil.warn("This usually means the bundled cloud-fabric is incompatible with your " +
+                        "Minecraft version. Install a build of cloud-fabric that supports this server " +
+                        "version to re-enable Grim commands.");
+            } else {
                 LogUtil.error(t);
             }
             return () -> {};
@@ -156,12 +155,7 @@ public abstract class AbstractGrimACFabricLoaderPlugin<
     }
 
     protected CommandService createPlatformCommandService() {
-        @SuppressWarnings({"rawtypes", "unchecked"})
-        CommandManager<@NotNull Sender> manager = new FabricServerCommandManager(
-                ExecutionCoordinator.simpleCoordinator(),
-                SenderMapper.identity()
-        );
-        return new CloudCommandService(() -> manager, commandArguments.get());
+        return FabricCommandServiceFactory.create(commandArguments.get());
     }
 
     public abstract ServerVersion getNativeVersion();
