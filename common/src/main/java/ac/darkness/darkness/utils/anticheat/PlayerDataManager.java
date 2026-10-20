@@ -3,9 +3,11 @@ package ac.darkness.darkness.utils.anticheat;
 import ac.darkness.darkness.GrimAPI;
 import ac.grim.grimac.api.event.events.GrimJoinEvent;
 import ac.grim.grimac.api.event.events.GrimQuitEvent;
+<<<<<<< HEAD:common/src/main/java/ac/darkness/darkness/utils/anticheat/PlayerDataManager.java
 import ac.darkness.darkness.player.GrimPlayer;
 import ac.darkness.darkness.platform.api.player.PlatformPlayer;
 import ac.darkness.darkness.platform.api.player.PlatformPlayerCache;
+import ac.darkness.darkness.utils.chunks.ChunkSectionCache;
 import ac.darkness.darkness.utils.reflection.GeyserUtil;
 import com.github.retrooper.packetevents.PacketEvents;
 import com.github.retrooper.packetevents.netty.channel.ChannelHelper;
@@ -106,7 +108,9 @@ public class PlayerDataManager {
     }
 
     public GrimPlayer remove(final @NotNull User user) {
-        return playerDataMap.remove(user);
+        GrimPlayer removed = playerDataMap.remove(user);
+        if (removed != null) ChunkSectionCache.releaseSharedSections(removed.compensatedWorld);
+        return removed;
     }
 
     public void onDisconnect(User user) {

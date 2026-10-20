@@ -1,10 +1,12 @@
 package ac.darkness.darkness.events.packets;
 
+<<<<<<< HEAD:common/src/main/java/ac/darkness/darkness/events/packets/PacketPlayerRespawn.java
 import ac.darkness.darkness.GrimAPI;
 import ac.darkness.darkness.checks.impl.packets.badpackets.*;
 import ac.darkness.darkness.checks.impl.packets.freecam.FreeCamB;
 import ac.darkness.darkness.checks.impl.movement.elytra.ElytraC;
 import ac.darkness.darkness.player.GrimPlayer;
+import ac.darkness.darkness.utils.chunks.ChunkSectionCache;
 import ac.darkness.darkness.utils.data.KnownInput;
 import ac.darkness.darkness.utils.data.SprintingState;
 import ac.darkness.darkness.utils.data.TrackerData;
@@ -204,6 +206,7 @@ public class PacketPlayerRespawn extends PacketListenerAbstract {
                     player.compensatedEntities.entityMap.clear();
                     player.compensatedWorld.activePistons.clear();
                     player.compensatedWorld.openShulkerBoxes.clear();
+                    ChunkSectionCache.releaseSharedSections(player.compensatedWorld);
                     player.compensatedWorld.chunks.clear();
                     player.compensatedWorld.clearPredictions();
                     player.compensatedGeysers.clear();
