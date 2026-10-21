@@ -1,10 +1,10 @@
 package ac.darkness.darkness.events.packets;
 
+<<<<<<< HEAD:common/src/main/java/ac/darkness/darkness/events/packets/PacketServerPlayerRotation.java
 import ac.darkness.darkness.GrimAPI;
 import ac.darkness.darkness.player.GrimPlayer;
 import ac.darkness.darkness.utils.connection.ConnectionUtils;
 import ac.darkness.darkness.utils.data.RotationData;
-import ac.darkness.darkness.utils.math.GrimMath;
 import com.github.retrooper.packetevents.event.PacketListenerAbstract;
 import com.github.retrooper.packetevents.event.PacketListenerPriority;
 import com.github.retrooper.packetevents.event.PacketSendEvent;
@@ -46,9 +46,10 @@ public class PacketServerPlayerRotation extends PacketListenerAbstract {
                 event.getTasksAfterSend().add(() -> ConnectionUtils.sendPacketPreVia(player, new WrapperPlayServerBundle()));
             }
             player.sendTransaction();
-            player.pendingRotations.add(new RotationData(
+            player.pendingRotations.add(RotationData.fromServer(
+                    player.getClientVersion(),
                     packet.getYaw(),
-                    packet.isRelativePitch() ? packet.getPitch() : GrimMath.clamp(packet.getPitch() % 360F, -90F, 90F),
+                    packet.getPitch(),
                     packet.isRelativeYaw(),
                     packet.isRelativePitch(),
                     player.getLastTransactionSent()
