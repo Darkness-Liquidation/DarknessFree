@@ -8,6 +8,7 @@ import ac.grim.grimac.api.event.EventBus;
 import ac.grim.grimac.api.plugin.GrimPlugin;
 import ac.darkness.darkness.command.CloudCommandService;
 import ac.grim.grimac.internal.platform.bukkit.resolver.BukkitResolverRegistrar;
+<<<<<<< HEAD:bukkit/src/main/java/ac/darkness/darkness/platform/bukkit/DarknessFreeBukkitLoaderPlugin.java
 import ac.darkness.darkness.manager.init.Initable;
 import ac.darkness.darkness.manager.init.start.ExemptOnlinePlayersOnReload;
 import ac.darkness.darkness.manager.init.start.StartableInitable;
@@ -24,7 +25,6 @@ import ac.darkness.darkness.platform.api.scheduler.PlatformScheduler;
 import ac.darkness.darkness.platform.api.sender.Sender;
 import ac.darkness.darkness.platform.api.sender.SenderFactory;
 import ac.darkness.darkness.platform.bukkit.initables.BukkitBStats;
-import ac.darkness.darkness.platform.bukkit.initables.BukkitEventManager;
 import ac.darkness.darkness.platform.bukkit.initables.BukkitLuckPermsInitable;
 import ac.darkness.darkness.platform.bukkit.initables.BukkitTickEndEvent;
 import ac.darkness.darkness.platform.bukkit.manager.BukkitItemResetHandler;
@@ -85,7 +85,6 @@ public final class DarknessFreeBukkitLoaderPlugin extends JavaPlugin implements 
     private Initable[] getBukkitInitTasks() {
         return new Initable[] {
                 new ExemptOnlinePlayersOnReload(),
-                new BukkitEventManager(),
                 new BukkitTickEndEvent(),
                 new BukkitBStats(),
                 new BukkitLuckPermsInitable(),
