@@ -1,13 +1,12 @@
 package ac.darkness.darkness.predictionengine;
 
+<<<<<<< HEAD:common/src/main/java/ac/darkness/darkness/predictionengine/SneakingEstimator.java
 import ac.darkness.darkness.checks.GrimProcessor;
 import ac.darkness.darkness.checks.type.PostPredictionListener;
 import ac.darkness.darkness.player.GrimPlayer;
 import ac.darkness.darkness.utils.anticheat.update.PredictionComplete;
 import ac.darkness.darkness.utils.collisions.datatypes.SimpleCollisionBox;
 import ac.darkness.darkness.utils.data.VectorData;
-import ac.darkness.darkness.utils.nmsutil.BlockProperties;
-import com.github.retrooper.packetevents.protocol.player.ClientVersion;
 import lombok.Getter;
 
 import java.util.ArrayList;
@@ -50,8 +49,8 @@ public class SneakingEstimator extends GrimProcessor implements PostPredictionLi
     public void onPredictionComplete(final PredictionComplete predictionComplete) {
         if (!predictionComplete.isChecked()) return;
 
-        float airDrag = BlockProperties.getModifiedAirDrag(0.91F, player);
-        double trueFriction = player.lastOnGround ? player.friction * airDrag : airDrag;
+        // player.friction already includes air drag
+        double trueFriction = player.friction;
         if (player.wasTouchingLava) trueFriction = 0.5;
         if (player.wasTouchingWater) trueFriction = 0.96;
         if (player.isGliding) trueFriction = 0.99;
