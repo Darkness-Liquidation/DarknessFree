@@ -1,9 +1,11 @@
 package ac.darkness.darkness.events.packets;
 
+<<<<<<< HEAD:common/src/main/java/ac/darkness/darkness/events/packets/CheckManagerListener.java
 import ac.darkness.darkness.GrimAPI;
 import ac.darkness.darkness.checks.impl.movement.inventory.InventoryB;
 import ac.darkness.darkness.checks.impl.packets.badpackets.BadPacketsB;
 import ac.darkness.darkness.player.GrimPlayer;
+import ac.darkness.darkness.predictionengine.PlayerBaseTick;
 import ac.darkness.darkness.utils.anticheat.update.*;
 import ac.darkness.darkness.utils.blockplace.BlockPlaceResult;
 import ac.darkness.darkness.utils.blockplace.ConsumesBlockPlace;
@@ -621,6 +623,9 @@ public class CheckManagerListener extends PacketListenerAbstract {
                 // Track dash cooldown
                 if (!player.inVehicle()) {
                     player.dashableEntities.tick();
+                    // The client still updates its pose on ticks it sends no movement for, so a crouch
+                    // released while standing still has to reach the pose here or the next move uses a stale hitbox
+                    PlayerBaseTick.updatePlayerPose(player);
                 }
             }
             player.packetStateData.didSendMovementBeforeTickEnd = false;
