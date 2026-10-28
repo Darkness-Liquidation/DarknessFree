@@ -40,6 +40,8 @@ public class PacketPlayerSteer extends PacketListenerAbstract {
             float forwards = steer.getForward();
             float sideways = steer.getSideways();
 
+            if (!Float.isFinite(forwards) || !Float.isFinite(sideways)) return;
+
             player.vehicleData.nextVehicleForward = forwards;
             player.vehicleData.nextVehicleHorizontal = sideways;
             player.vehicleData.nextHorseJump = steer.isJump() ? (player.vehicleData.nextHorseJump + 1) : 0;
