@@ -1,10 +1,13 @@
 package ac.darkness.darkness.checks.impl.packets.freecam;
 
+<<<<<<< HEAD:common/src/main/java/ac/darkness/darkness/checks/impl/packets/freecam/FreeCamA.java
 import ac.darkness.darkness.checks.Check;
 import ac.darkness.darkness.checks.CheckData;
 import ac.darkness.darkness.checks.type.PacketReceiveListener;
 import ac.darkness.darkness.player.GrimPlayer;
+import com.github.retrooper.packetevents.PacketEvents;
 import com.github.retrooper.packetevents.event.PacketReceiveEvent;
+import com.github.retrooper.packetevents.manager.server.ServerVersion;
 import com.github.retrooper.packetevents.protocol.packettype.PacketType;
 
 @CheckData(name = "FreeCamA", alternativeName = "BadPacketsR", configName = "FreeCamA", stableKey = "grim.freecam.position_starvation", description = "Stopped sending position updates while still responding to transactions", decay = 0.25)
@@ -43,6 +46,11 @@ public class FreeCamA extends Check implements PacketReceiveListener {
             positions++;
         } else if ((event.getPacketType() == PacketType.Play.Client.STEER_VEHICLE || event.getPacketType() == PacketType.Play.Client.VEHICLE_MOVE)
                 && player.inVehicle()) {
+            positions++;
+        } else if (event.getPacketType() == PacketType.Play.Client.PLAYER_ROTATION && player.inVehicle()
+                && PacketEvents.getAPI().getServerManager().getVersion().isNewerThanOrEquals(ServerVersion.V_1_21_2)) {
+            // 1.21.2 replaced steer vehicle with player input, which is only sent when the input changes
+            // The rotation is the only packet a passenger still sends every tick
             positions++;
         }
     }
