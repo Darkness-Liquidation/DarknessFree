@@ -62,6 +62,9 @@ public class NoSlowA extends Check implements PostPredictionListener {
                 reward();
                 flaggedLastTick = false;
             }
+        } else {
+            // A failed tick from an earlier item use must not count towards the next one
+            flaggedLastTick = false;
         }
         bestOffset = 1;
     }
