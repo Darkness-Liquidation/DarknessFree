@@ -160,6 +160,12 @@ VehicleTimer:
     # Celuje w timer 1.005
     setbackvl: 10
 
+FastBreak:
+    # How many milliseconds of advantage from breaking blocks too quickly before flagging
+    break-threshold: 1000
+    # How many milliseconds of advantage from starting to break a block too soon after the last one before flagging
+    delay-threshold: 1000
+
 ProtocolJ:
     # Włącz, jeśli gracze są oznaczani za używanie modów do animacji z 1.7.
     exempt-placing-while-digging: false

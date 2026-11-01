@@ -182,6 +182,12 @@ VehicleTimer:
     setbackvl: 10
     # VL达到多少时回弹？
 
+FastBreak:
+    # How many milliseconds of advantage from breaking blocks too quickly before flagging
+    break-threshold: 1000
+    # How many milliseconds of advantage from starting to break a block too soon after the last one before flagging
+    delay-threshold: 1000
+
 ProtocolJ:
     # 如果玩家因使用1.7动画模组而误判，则启用此项
     exempt-placing-while-digging: false
