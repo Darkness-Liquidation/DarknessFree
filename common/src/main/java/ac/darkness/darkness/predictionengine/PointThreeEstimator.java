@@ -1,5 +1,6 @@
 package ac.darkness.darkness.predictionengine;
 
+<<<<<<< HEAD:common/src/main/java/ac/darkness/darkness/predictionengine/PointThreeEstimator.java
 import ac.darkness.darkness.checks.impl.combat.reach.ReachA;
 import ac.darkness.darkness.player.GrimPlayer;
 import com.github.retrooper.packetevents.util.Vector3i;
@@ -16,6 +17,7 @@ import ac.darkness.darkness.utils.nmsutil.BlockProperties;
 import ac.darkness.darkness.utils.nmsutil.FluidTypeFlowing;
 import ac.darkness.darkness.utils.nmsutil.GetBoundingBox;
 import ac.darkness.darkness.utils.nmsutil.Materials;
+import com.github.retrooper.packetevents.protocol.attribute.Attributes;
 import com.github.retrooper.packetevents.protocol.item.type.ItemTypes;
 import com.github.retrooper.packetevents.protocol.player.ClientVersion;
 import com.github.retrooper.packetevents.protocol.potion.PotionType;
@@ -495,8 +497,13 @@ public class PointThreeEstimator {
             // This supports both positive and negative levitation
             y += (0.05 * (levitation.getAsInt() + 1) - y) * 0.2;
         } else if (player.hasGravity) {
-            // Simulate gravity
-            y -= player.gravity;
+            // Simulate gravity. Slow falling is picked per tick like in staticVectorEndOfTick, player.gravity comes from the
+            // whole movement and would slow the skipped tick at the top of a jump that's still going up
+            double gravity = player.compensatedEntities.self.getAttributeValue(Attributes.GRAVITY);
+            if (y <= 0 && player.compensatedEntities.getSlowFallingAmplifier().isPresent()) {
+                gravity = player.getClientVersion().isOlderThan(ClientVersion.V_1_20_5) ? 0.01 : Math.min(gravity, 0.01);
+            }
+            y -= gravity;
         }
 
         // Simulate end of tick friction
