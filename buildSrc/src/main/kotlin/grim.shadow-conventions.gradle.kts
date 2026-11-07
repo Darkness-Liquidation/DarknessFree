@@ -20,23 +20,17 @@ tasks.named<ShadowJar>("shadowJar") {
 
     if (BuildConfig.relocate) {
         if (BuildConfig.shadePE) {
-            relocate("io.github.retrooper.packetevents", "ac.darkness.darkness.shaded.io.github.retrooper.packetevents")
-            relocate("com.github.retrooper.packetevents", "ac.darkness.darkness.shaded.com.github.retrooper.packetevents")
+            relocate("io.github.retrooper.packetevents", "ac.darkness.darkness.shaded.packetevents-impl")
+            relocate("com.github.retrooper.packetevents", "ac.darkness.darkness.shaded.packetevents")
             relocate("net.kyori", "ac.darkness.darkness.shaded.kyori") // use PE's built-in adventure instead when not shading PE
         }
-        relocate("club.minnced", "ac.darkness.darkness.shaded.discord-webhooks")
         relocate("org.slf4j", "ac.darkness.darkness.shaded.slf4j") // Required by HikariCP; slf4j-jdk14 ships beside it as the provider
         relocate("github.scarsz.configuralize", "ac.darkness.darkness.shaded.configuralize")
-        relocate("com.github.puregero", "ac.darkness.darkness.shaded.com.github.puregero")
         relocate("com.google.code.gson", "ac.darkness.darkness.shaded.gson")
         relocate("alexh", "ac.darkness.darkness.shaded.maps")
         relocate("it.unimi.dsi.fastutil", "ac.darkness.darkness.shaded.fastutil")
-        relocate("okhttp3", "ac.darkness.darkness.shaded.okhttp3")
-        relocate("okio", "ac.darkness.darkness.shaded.okio")
         relocate("org.yaml.snakeyaml", "ac.darkness.darkness.shaded.snakeyaml")
         relocate("org.json", "ac.darkness.darkness.shaded.json")
-        relocate("org.intellij", "ac.darkness.darkness.shaded.intellij")
-        relocate("org.jetbrains", "ac.darkness.darkness.shaded.jetbrains")
         relocate("org.incendo", "ac.darkness.darkness.shaded.incendo")
         relocate("io.leangen.geantyref", "ac.darkness.darkness.shaded.geantyref") // Required by cloud
         relocate("com.zaxxer", "ac.darkness.darkness.shaded.zaxxer") // Database history
