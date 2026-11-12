@@ -1,6 +1,6 @@
 package ac.darkness.darkness.utils.data;
 
-import ac.grim.grimac.utils.math.GrimMath;
+import ac.darkness.darkness.utils.math.GrimMath;
 import com.github.retrooper.packetevents.protocol.player.ClientVersion;
 import org.jetbrains.annotations.Contract;
 

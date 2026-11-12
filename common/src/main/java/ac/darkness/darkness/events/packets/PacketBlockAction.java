@@ -1,6 +1,5 @@
 package ac.darkness.darkness.events.packets;
 
-<<<<<<< HEAD:common/src/main/java/ac/darkness/darkness/events/packets/PacketBlockAction.java
 import ac.darkness.darkness.GrimAPI;
 import ac.darkness.darkness.player.GrimPlayer;
 import ac.darkness.darkness.utils.data.PistonData;

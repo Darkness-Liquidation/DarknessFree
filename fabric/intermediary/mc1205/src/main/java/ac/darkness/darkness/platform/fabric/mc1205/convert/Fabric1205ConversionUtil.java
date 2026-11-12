@@ -1,6 +1,5 @@
 package ac.darkness.darkness.platform.fabric.mc1205.convert;
 
-<<<<<<< HEAD:fabric/intermediary/mc1205/src/main/java/ac/darkness/darkness/platform/fabric/mc1205/convert/Fabric1205ConversionUtil.java
 import ac.darkness.darkness.platform.fabric.GrimACFabricIntermediaryLoaderPlugin;
 import ac.darkness.darkness.platform.fabric.utils.convert.FabricComponentDecoder;
 import ac.darkness.darkness.platform.fabric.utils.convert.FabricIntermediaryConversionUtil;

@@ -1,6 +1,5 @@
 package ac.darkness.darkness.predictionengine;
 
-<<<<<<< HEAD:common/src/main/java/ac/darkness/darkness/predictionengine/PointThreeEstimator.java
 import ac.darkness.darkness.checks.impl.combat.reach.ReachA;
 import ac.darkness.darkness.player.GrimPlayer;
 import com.github.retrooper.packetevents.util.Vector3i;

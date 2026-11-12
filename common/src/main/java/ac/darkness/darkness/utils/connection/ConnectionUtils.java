@@ -1,6 +1,5 @@
 package ac.darkness.darkness.utils.connection;
 
-<<<<<<< HEAD:common/src/main/java/ac/darkness/darkness/utils/connection/ConnectionUtils.java
 import ac.darkness.darkness.player.GrimPlayer;
 import ac.darkness.darkness.utils.viaversion.ViaVersionUtil;
 import com.github.retrooper.packetevents.PacketEvents;

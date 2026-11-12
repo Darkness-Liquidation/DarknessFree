@@ -1,6 +1,5 @@
 package ac.darkness.darkness.platform.fabric.mc261;
 
-<<<<<<< HEAD:fabric/official/mc261/src/main/java/ac/darkness/darkness/platform/fabric/mc261/Fabric261ConversionUtil.java
 import ac.darkness.darkness.platform.fabric.GrimACFabricOfficialLoaderPlugin;
 import ac.darkness.darkness.platform.fabric.utils.convert.FabricComponentDecoder;
 import ac.darkness.darkness.platform.fabric.utils.convert.FabricOfficialConversionUtil;

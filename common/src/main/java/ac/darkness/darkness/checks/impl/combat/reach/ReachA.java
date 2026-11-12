@@ -29,6 +29,7 @@ import ac.darkness.darkness.utils.data.packetentity.PacketEntity;
 import ac.darkness.darkness.utils.data.packetentity.PacketEntitySizeable;
 import ac.darkness.darkness.utils.data.packetentity.dragon.PacketEntityEnderDragonPart;
 import ac.darkness.darkness.utils.math.Vector3dm;
+import ac.darkness.darkness.utils.math.VectorUtils;
 import ac.darkness.darkness.utils.nmsutil.ReachUtils;
 import ac.darkness.darkness.utils.viaversion.ViaVersionUtil;
 import com.github.retrooper.packetevents.PacketEvents;
@@ -333,18 +334,17 @@ public class ReachA extends Check implements PacketReceiveListener {
             Vector3dm lookVec = lookDir.clone().multiply(distance);
 
             for (double eye : possibleEyeHeights) {
-                final Vector3d eyePos = new Vector3d(x, y + eye, z);
-                Vector3d endReachPos = eyePos.add(lookVec.getX(), lookVec.getY(), lookVec.getZ());
+                double eyeY = y + eye;
 
-                Vector3d intercept = ReachUtils.calculateIntercept(targetBox, eyePos, endReachPos).first();
+                Vector3d intercept = ReachUtils.calculateIntercept(targetBox, x, eyeY, z, x + lookVec.getX(), eyeY + lookVec.getY(), z + lookVec.getZ()).first();
 
-                if (ReachUtils.isVecInside(targetBox, eyePos)) {
+                if (ReachUtils.isVecInside(targetBox, x, eyeY, z)) {
                     minDistance = 0;
                     break;
                 }
 
                 if (intercept != null) {
-                    minDistance = Math.min(eyePos.distance(intercept), minDistance);
+                    minDistance = Math.min(VectorUtils.distance(x, eyeY, z, intercept), minDistance);
                     lookVecsAndEyeHeights.add(new Pair<>(lookDir, eye));
                 }
             }

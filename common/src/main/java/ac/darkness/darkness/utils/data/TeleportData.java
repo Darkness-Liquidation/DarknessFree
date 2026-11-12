@@ -1,6 +1,5 @@
 package ac.darkness.darkness.utils.data;
 
-<<<<<<< HEAD:common/src/main/java/ac/darkness/darkness/utils/data/TeleportData.java
 import ac.darkness.darkness.player.GrimPlayer;
 import ac.darkness.darkness.utils.math.GrimMath;
 import ac.darkness.darkness.utils.math.Vector3dm;

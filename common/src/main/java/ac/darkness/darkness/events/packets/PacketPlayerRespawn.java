@@ -1,6 +1,5 @@
 package ac.darkness.darkness.events.packets;
 
-<<<<<<< HEAD:common/src/main/java/ac/darkness/darkness/events/packets/PacketPlayerRespawn.java
 import ac.darkness.darkness.GrimAPI;
 import ac.darkness.darkness.checks.impl.packets.badpackets.*;
 import ac.darkness.darkness.checks.impl.packets.freecam.FreeCamB;
@@ -170,7 +169,7 @@ public class PacketPlayerRespawn extends PacketListenerAbstract {
                 player.isInBed = false;
                 player.packetStateData.setSlowedByUsingItem(false);
                 player.packetStateData.packetPlayerOnGround = false; // If somewhere else pulls last ground to fix other issues
-                player.packetStateData.lastClaimedPosition = new Vector3d();
+                player.packetStateData.lastClaimedPosition = Vector3d.zero();
                 player.filterMojangStupidityOnMojangStupidity.zero();
 
                 player.checkManager.get(BadPacketsM.class).onRespawn();

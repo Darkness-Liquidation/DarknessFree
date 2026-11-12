@@ -2,12 +2,11 @@ package ac.darkness.darkness.checks.impl.misc.interact;
 
 import ac.grim.grimac.api.config.ConfigManager;
 import ac.grim.grimac.api.storage.verbose.Verbose;
-<<<<<<< HEAD:common/src/main/java/ac/darkness/darkness/checks/impl/misc/interact/InteractA.java
 import ac.darkness.darkness.checks.Check;
 import ac.darkness.darkness.checks.CheckData;
 import ac.darkness.darkness.checks.impl.verbose.VerboseCodecs;
 import ac.darkness.darkness.checks.type.BlockBreakListener;
-import ac.darkness.darkness.checks.type.PreViaPacketReceiveListener;
+import ac.darkness.darkness.checks.type.PacketReceiveListener;
 import ac.darkness.darkness.player.GrimPlayer;
 import ac.darkness.darkness.utils.anticheat.update.BlockBreak;
 import ac.darkness.darkness.utils.math.GrimMath;
@@ -29,9 +28,8 @@ import java.util.Set;
 // Based loosely off of Hawk BlockBreakSpeedSurvival
 // Also based loosely off of NoCheatPlus FastBreak
 // Also based off minecraft wiki: https://minecraft.wiki/w/Breaking#Instant_breaking
-<<<<<<< HEAD:common/src/main/java/ac/darkness/darkness/checks/impl/misc/interact/InteractA.java
 @CheckData(name = "InteractA", alternativeName = "FastBreak", configName = "InteractA", stableKey = "grim.breaking.fast_break", description = "Breaking blocks too quickly")
-public class InteractA extends Check implements BlockBreakListener, PreViaPacketReceiveListener {
+public class InteractA extends Check implements BlockBreakListener, PacketReceiveListener {
     private static final Verbose V =
             Verbose.of("[delay={ulong}ms|diff={f64:%.1f}ms, balance={f64:%.1f}ms], type={block}");
 

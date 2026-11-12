@@ -1,12 +1,12 @@
 package ac.darkness.darkness.predictionengine;
 
-<<<<<<< HEAD:common/src/main/java/ac/darkness/darkness/predictionengine/SneakingEstimator.java
 import ac.darkness.darkness.checks.GrimProcessor;
 import ac.darkness.darkness.checks.type.PostPredictionListener;
 import ac.darkness.darkness.player.GrimPlayer;
 import ac.darkness.darkness.utils.anticheat.update.PredictionComplete;
 import ac.darkness.darkness.utils.collisions.datatypes.SimpleCollisionBox;
 import ac.darkness.darkness.utils.data.VectorData;
+import com.github.retrooper.packetevents.protocol.player.ClientVersion;
 import lombok.Getter;
 
 import java.util.ArrayList;

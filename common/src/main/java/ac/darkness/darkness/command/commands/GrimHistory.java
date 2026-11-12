@@ -18,7 +18,6 @@ import ac.grim.grimac.api.storage.query.Queries;
 import ac.darkness.darkness.command.BuildableCommand;
 import ac.darkness.darkness.command.render.HistoryComponentRenderer;
 import ac.grim.grimac.internal.storage.checks.CheckRegistry;
-<<<<<<< HEAD:common/src/main/java/ac/darkness/darkness/command/commands/GrimHistory.java
 import ac.darkness.darkness.manager.datastore.DataStoreLifecycle;
 import ac.darkness.darkness.platform.api.manager.cloud.CloudPlatformCommandArguments;
 import ac.darkness.darkness.platform.api.player.PlatformPlayer;

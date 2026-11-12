@@ -1,6 +1,5 @@
 package ac.darkness.darkness.events.packets.worldreader;
 
-<<<<<<< HEAD:common/src/main/java/ac/darkness/darkness/events/packets/worldreader/BasePacketWorldReader.java
 import ac.darkness.darkness.GrimAPI;
 import ac.darkness.darkness.player.GrimPlayer;
 import ac.darkness.darkness.utils.chunks.ChunkSectionCache;
@@ -156,7 +155,7 @@ public class BasePacketWorldReader extends PacketListenerAbstract {
                 player.lastTransSent + 2 < System.currentTimeMillis())
             player.sendTransaction();
 
-        player.latencyUtils.addRealTimeTask(player.lastTransactionSent.get(), () -> player.compensatedWorld.updateBlock(blockPosition.getX(), blockPosition.getY(), blockPosition.getZ(), blockChange.getBlockId()));
+        player.latencyUtils.addRealTimeTask(player.lastTransactionSent.get(), () -> player.compensatedWorld.updateBlock(blockPosition, blockChange.getBlockId()));
     }
 
     public void handleMultiBlockChange(GrimPlayer player, PacketSendEvent event) {

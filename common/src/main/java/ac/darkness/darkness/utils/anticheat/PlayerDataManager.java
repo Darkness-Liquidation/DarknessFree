@@ -3,7 +3,6 @@ package ac.darkness.darkness.utils.anticheat;
 import ac.darkness.darkness.GrimAPI;
 import ac.grim.grimac.api.event.events.GrimJoinEvent;
 import ac.grim.grimac.api.event.events.GrimQuitEvent;
-<<<<<<< HEAD:common/src/main/java/ac/darkness/darkness/utils/anticheat/PlayerDataManager.java
 import ac.darkness.darkness.player.GrimPlayer;
 import ac.darkness.darkness.platform.api.player.PlatformPlayer;
 import ac.darkness.darkness.platform.api.player.PlatformPlayerCache;

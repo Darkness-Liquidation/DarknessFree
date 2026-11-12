@@ -1,6 +1,5 @@
 package ac.darkness.darkness.platform.fabric.mc1216;
 
-<<<<<<< HEAD:fabric/intermediary/mc12111/src/main/java/ac/darkness/darkness/platform/fabric/mc1216/GrimACFabric1212LoaderPlugin.java
 import ac.darkness.darkness.platform.fabric.command.FabricPlayerSelectorParser;
 import ac.darkness.darkness.platform.fabric.manager.FabricCloudPlatformCommandArguments;
 import ac.darkness.darkness.platform.fabric.mc1194.GrimACFabric1190LoaderPlugin;

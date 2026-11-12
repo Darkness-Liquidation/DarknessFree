@@ -106,7 +106,6 @@ public class Check extends GrimProcessor implements AbstractCheck {
         super(player, false);
 
         final CheckData checkData = this.getClass().getAnnotation(CheckData.class);
-<<<<<<< HEAD:common/src/main/java/ac/darkness/darkness/checks/Check.java
                 if (checkData == null) {
             throw new IllegalStateException("Check class must have @CheckData annotation. Consider using GrimProcessor instead.");
         }

@@ -1,6 +1,5 @@
 package ac.darkness.darkness.checks.impl.packets.freecam;
 
-<<<<<<< HEAD:common/src/main/java/ac/darkness/darkness/checks/impl/packets/freecam/FreeCamA.java
 import ac.darkness.darkness.checks.Check;
 import ac.darkness.darkness.checks.CheckData;
 import ac.darkness.darkness.checks.type.PacketReceiveListener;

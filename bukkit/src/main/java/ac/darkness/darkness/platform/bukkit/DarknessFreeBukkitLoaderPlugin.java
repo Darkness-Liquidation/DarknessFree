@@ -8,7 +8,6 @@ import ac.grim.grimac.api.event.EventBus;
 import ac.grim.grimac.api.plugin.GrimPlugin;
 import ac.darkness.darkness.command.CloudCommandService;
 import ac.grim.grimac.internal.platform.bukkit.resolver.BukkitResolverRegistrar;
-<<<<<<< HEAD:bukkit/src/main/java/ac/darkness/darkness/platform/bukkit/DarknessFreeBukkitLoaderPlugin.java
 import ac.darkness.darkness.manager.init.Initable;
 import ac.darkness.darkness.manager.init.start.ExemptOnlinePlayersOnReload;
 import ac.darkness.darkness.manager.init.start.StartableInitable;

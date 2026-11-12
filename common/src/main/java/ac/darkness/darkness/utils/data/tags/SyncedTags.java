@@ -1,6 +1,5 @@
 package ac.darkness.darkness.utils.data.tags;
 
-<<<<<<< HEAD:common/src/main/java/ac/darkness/darkness/utils/data/tags/SyncedTags.java
 import ac.darkness.darkness.player.GrimPlayer;
 import ac.darkness.darkness.utils.viaversion.ViaVersionUtil;
 import com.github.retrooper.packetevents.PacketEvents;

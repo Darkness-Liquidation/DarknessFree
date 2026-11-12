@@ -1,7 +1,6 @@
 package ac.darkness.darkness.checks.impl.misc.crash;
 
 import ac.grim.grimac.api.storage.verbose.Verbose;
-<<<<<<< HEAD:common/src/main/java/ac/darkness/darkness/checks/impl/misc/crash/CrashC.java
 import ac.darkness.darkness.checks.Check;
 import ac.darkness.darkness.checks.CheckData;
 import ac.darkness.darkness.checks.type.PreViaPacketReceiveListener;
