@@ -21,19 +21,10 @@ public record Ray(double originX, double originY, double originZ, double directi
     public @NotNull Vector3d getDirection() {
         return new Vector3d(directionX, directionY, directionZ);
     }
-
-    // Account for FastMath by using player's trig handler
-    // Copied from hawk which probably copied it from NMS
     @Contract(value = "_, _, _, _, _, _ -> new", pure = true)
     public static @NotNull Ray from(@NotNull GrimPlayer player, double x, double y, double z, float yaw, float pitch) {
-        float rotX = (float) Math.toRadians(yaw);
-        float rotY = (float) Math.toRadians(pitch);
-        double xz = player.trigHandler.cos(rotY);
-
-        double dx = -xz * player.trigHandler.sin(rotX);
-        double dy = -player.trigHandler.sin(rotY);
-        double dz = xz * player.trigHandler.cos(rotX);
-        return new Ray(x, y, z, dx, dy, dz);
+        Vector3dm direction = ReachUtils.getLook(player, yaw, pitch);
+        return new Ray(x, y, z, direction.getX(), direction.getY(), direction.getZ());
     }
 
     @Contract(" -> this")
