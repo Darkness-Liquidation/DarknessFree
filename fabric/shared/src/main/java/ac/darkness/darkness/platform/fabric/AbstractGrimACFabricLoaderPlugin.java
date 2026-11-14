@@ -14,7 +14,6 @@ import ac.darkness.darkness.platform.api.manager.PermissionRegistrationManager;
 import ac.darkness.darkness.platform.api.manager.PlatformPluginManager;
 import ac.darkness.darkness.platform.api.player.PlatformPlayerFactory;
 import ac.darkness.darkness.platform.api.scheduler.PlatformScheduler;
-import ac.darkness.darkness.platform.api.sender.Sender;
 import ac.darkness.darkness.platform.api.sender.SenderFactory;
 import ac.darkness.darkness.platform.fabric.command.FabricCommandServiceFactory;
 import ac.darkness.darkness.platform.fabric.manager.FabricMessagePlaceHolderManager;
